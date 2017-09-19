@@ -181,16 +181,15 @@ main <- function() {
     print("Creating tidy data set")
     table_tidy <<- createTidyDataSet()
 
-    ## write table_tidy to csv as it's neater and easier to read than text file
-    if (file.exists("data/tidy.csv")) {
-        stop("A file named 'data/tidy.csv' already exists. Please delete and try again")
+    ## Write table_tidy to txt
+    if (file.exists("data/tidy.txt")) {
+        stop("A file named 'data/tidy.txt' already exists. Please delete and try again")
     }
     
-    print("Writing data to data/tidy.csv")
-    write.csv(table_tidy, "data/tidy.csv", row.names = FALSE)
+    print("Writing data to data/tidy.txt")
+    write.table(table_tidy, "data/tidy.txt", sep = "\t", row.names = FALSE)
     
     print("Writing complete. Have a nice day!")
-    
 }
 
 ## Run the program
